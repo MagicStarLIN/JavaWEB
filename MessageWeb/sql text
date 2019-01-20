@@ -1,0 +1,15 @@
+select * from message
+
+create table message
+(
+  mid number(8),             --留言ID
+  author varchar2(20),       --作者
+  title  varchar2(50),       --标题
+  content varchar2(1000),    --内容
+  email  varchar2(20),       --邮件
+  add_date varchar(20)              --留言时间            
+);
+drop table message
+insert into message (mid,author,title,content,email,add_date)values (10,'张三风','Java语言的历史','Java语言的历史简介','zhangsf@126.com','14-3月-2010');
+commit;
+insert into message(mid,author,title,content,email,add_date) values(1.'l')
