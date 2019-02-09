@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src = "../lib/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <h1 id="h1_1">浏览器端当前时间：</h1>
+    <h1 id="h1_2">服务器端当前时间：</h1>
+    <button id="btn_1" type="button">动态刷新服务器时间</button>
+<script>
+    $("#h1_1").html("浏览器端当前时间："+new Date());
+</script>
+<script>
+    $("#btn_1").click(function () {
+        $.ajax({
+            type : "get",
+            url : "/TestAJAX/DateServlet",
+            data : "method=getServerDate",
+            success : changeTime
+        })
+    })
+
+    function changTime(resp) {
+        $("#h1_2").html("服务器当前时间：" + resp);
+    }
+</script>
+</body>
+</html>
